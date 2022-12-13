@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import img from "./assets/img/backgroundimg.jpg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Products from "./Components/Products";
+import Header from "./Components/Header";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Body>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Products/>}/>
+      </Routes>
+    </Body>
+    </BrowserRouter>
   );
 }
 
-export default App;
+const Body = styled.div`
+
+  width: 100vw;
+  height: 100vh;
+  background-image: url(${img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+`;
